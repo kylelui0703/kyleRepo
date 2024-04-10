@@ -53,7 +53,6 @@
                 margin: 10px 0;
             }
 
-
             @media only screen and (min-width: 768px) {
                 .box {
                     width: 50%;
@@ -82,8 +81,18 @@
             </p>
         </div>
         </div>
-        <audio autoplay>
+        <audio id="audioPlayer">
             <source src="Taylor Swift - Enchanted.mp3" type="audio/mpeg">
         </audio>
+        <button id="playButton">Play Audio</button>
+        
+        <script>
+            var audio = document.getElementById('audioPlayer');
+            var playButton = document.getElementById('playButton');
+        
+            playButton.addEventListener('click', function() {
+                audio.play();
+            });
+        </script>
     </body>
 </html>
