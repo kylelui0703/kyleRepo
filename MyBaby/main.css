@@ -1,0 +1,179 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-image: url('image/heart.jpg');
+    background-size: cover; /* Ensures the image covers the entire screen */
+    background-position: center; /* Centers the image */
+    background-attachment: fixed; /* Keeps the background fixed while scrolling */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: grid;
+    place-items: center; /* Centers everything inside the container */
+    padding: 0 15px;
+}
+
+.responsive-img {
+    max-width: 100%;
+    height: auto;
+}
+
+button {
+    margin: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.top-button {
+    grid-row: 1;  /* Placing the button in the first row */
+    padding: 10px 20px;
+    background-color: #cc5898;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.image1 {
+    width: 30%;
+    margin-bottom: 40px;
+    border-radius: 10px;
+}
+
+.image {
+    width: 100%; /* Ensures the images fill their respective grid cells */
+    height: auto;
+    margin-bottom: 40px;
+    border-radius: 10px;
+}
+
+.picture-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three columns */
+    gap: 10px; 
+}
+
+.header-text {
+    font-size: 100px;
+    color: #a73b76;
+}
+
+.envelope {
+    width: 500px; /* Increased width */
+    height: 300px; /* Increased height */
+    background-color: #eb8697; /* Pink color */
+    position: relative;
+    border: 2px solid #ccc;
+    cursor: pointer;
+    transition: transform 0.6s ease-in-out;
+    transform-style: preserve-3d; /* Ensure 3D transformations work */
+}
+
+.envelope.opened {
+    transform: rotateX(180deg); /* Rotate only the envelope */
+}
+
+.flap {
+    position: absolute;
+    background-color: #eb8697; /* Pink color for the flaps */
+    border: 2px solid #ccc;
+    width: 100%;
+    height: 50%;
+    transition: all 0.6s ease-in-out;
+    backface-visibility: hidden; /* Hide the back when rotating */
+}
+
+.flap.top {
+    top: 0;
+    border-bottom: none;
+    transform-origin: top; /* Set the rotation axis for the top flap */
+}
+
+.flap.bottom {
+    bottom: 0;
+    border-top: none;
+    transform-origin: bottom; /* Set the rotation axis for the bottom flap */
+}
+
+.envelope.opened .flap.top {
+    transform: rotateX(-180deg); /* Rotate top flap when envelope opens */
+}
+
+.envelope.opened .flap.bottom {
+    transform: rotateX(180deg); /* Rotate bottom flap when envelope opens */
+}
+
+/* This wrapper will hold the message and keep it upright */
+.message-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the message */
+    text-align: center;
+    opacity: 0;  /* Start hidden */
+    transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+    z-index: 1; /* Make sure the message stays on top */
+}
+
+.envelope.opened .message-container {
+    opacity: 1; /* Fade in the message */
+    transform: translate(-50%, -50%) rotateX(180deg); /* Ensure the message is upright */
+}
+
+.message {
+    margin: 0;
+    font-size: 18px;
+    color: white;
+    transform: rotateX(0); /* Ensure the message is upright */
+}
+
+/* Styles for "Click to open" text */
+.click-to-open {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    color: white;
+    font-weight: bold;
+    pointer-events: none; /* Ensures the text does not interfere with the click event */
+}  
+
+.image-envelope-wrapper {
+    display: flex; /* Use flexbox to place items side by side */
+    gap: 20px; /* Space between image and envelope */
+    align-items: center; /* Vertically center items */
+}
+
+@media (max-width: 768px) {
+    .container {
+        margin-top: 20px;
+    }
+
+    button {
+        margin: 10px;
+        padding: 8px 16px;
+    }
+
+    .image1 {
+        width: 100%; /* Make images full-width on smaller screens */
+        margin-bottom: 20px;
+    }
+
+    .picture-container {
+        grid-template-columns: 1fr 1fr; /* Two columns for smaller screens */
+    }
+
+    .header-text {
+        font-size: 50px; /* Reduce header size on smaller screens */
+    }
+}

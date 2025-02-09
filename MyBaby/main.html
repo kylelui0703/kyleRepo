@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jhemyia Dizon Rivera</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <iframe src="music.html" id="music-frame" style="display: none;"></iframe>
+    <div class="container">
+        <button class="top-button" id="start-music">Kindly press this button first. Thank you, Baby</button>
+        <div class="valentines-container">
+            <div class="image-envelope-wrapper">
+                <img src="image/cute-gif.gif" alt="Main Picture" class="responsive-img">
+                <div class="envelope" onclick="revealMessage()">
+                    <div class="flap top"></div>
+                    <div class="flap bottom"></div>
+                    <div class="message-container">
+                        <p class="message">
+                            Hello Baby, Advance Happy Valentine's day
+                            I have initial plan na for Valentine's day baby.
+                            Let's talk about it if okay sayo.
+                            I love you so much baby mwaaaaa!!<br><br>
+                            INITIAL PLAN:<br>
+                            - Let's have steak lunch here sa house baby.<br>
+                            - Let's go to church.<br>
+                            - Let's have pictures together.<br>
+                            - Dinner Date<br>
+                        </p>
+                    </div>
+                    <div class="click-to-open">Click to open</div>
+                </div>
+            </div>
+        </div>
+        <h1 class="header-text">Memories</h1>
+        <img src="image/1.PNG" alt="Picture 1" class="image1">
+        <img src="image/2.PNG" alt="Picture 2" class="image1">
+        <img src="image/8.PNG" alt="Picture 8" class="image1">
+        <div class="picture-container">
+            <img src="image/3.JPG" alt="Picture 3" class="image">
+            <img src="image/6.JPG" alt="Picture 6" class="image">
+            <img src="image/13.JPG" alt="Picture 13" class="image">
+            <img src="image/4.JPG" alt="Picture 4" class="image">
+            <img src="image/5.JPG" alt="Picture 5" class="image">
+            <img src="image/7.JPG" alt="Picture 7" class="image">
+            <img src="image/9.JPG" alt="Picture 9" class="image">
+            <img src="image/10.JPG" alt="Picture 10" class="image">
+            <img src="image/11.JPG" alt="Picture 11" class="image">
+            <img src="image/12.JPG" alt="Picture 12" class="image">
+            <img src="image/14.JPG" alt="Picture 14" class="image">
+            <img src="image/15.JPG" alt="Picture 15" class="image">
+            <img src="image/16.JPG" alt="Picture 16" class="image">
+            <img src="image/17.JPG" alt="Picture 17" class="image">
+            <img src="image/18.JPG" alt="Picture 18" class="image">
+            <img src="image/19.jpg" alt="Picture 19" class="image">
+            <img src="image/20.JPG" alt="Picture 20" class="image">
+            <img src="image/21.JPG" alt="Picture 21" class="image">
+            <img src="image/22.JPG" alt="Picture 22" class="image">
+        </div> 
+    </div>
+    <script>
+        document.getElementById('start-music').addEventListener('click', function() {
+            var iframe = document.getElementById('music-frame');
+            var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+            var audio = iframeDocument.getElementById('background-music');
+            audio.play();
+        });
+
+        function revealMessage() {
+            const envelope = document.querySelector('.envelope');
+            const clickToOpen = document.querySelector('.click-to-open');
+            envelope.classList.toggle('opened');
+            clickToOpen.style.display = envelope.classList.contains('opened') ? 'none' : 'block';
+        }
+    </script>
+</body>
+</html>
